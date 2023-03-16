@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import ListItem from './ListItem'
 
+import Listings from './data/listings.json';
+
 function Home() {
   return (
     <div>
@@ -19,11 +21,7 @@ function Home() {
           <option value="calgary">Calgary</option>
           <option value="montreal">Montreal</option>
         </select>
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {Listings.map((listing, key) => <ListItem key={key} title={listing.title} description={listing.description} photoUrl={listing.photoUrl} location={listing.location}></ListItem>)}
       </div>
     </div>
   );

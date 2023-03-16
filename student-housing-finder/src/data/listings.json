@@ -1,0 +1,16 @@
+[
+    {
+        "id": "0",
+        "title": "Title",
+        "description": "Description",
+        "photoUrl": "URL",
+        "location": "Ottawa"
+    },
+    {
+        "id": "1",
+        "title": "Title 1",
+        "description": "Description 1",
+        "photoUrl": "URL",
+        "location": "Toronto"
+    }
+]
