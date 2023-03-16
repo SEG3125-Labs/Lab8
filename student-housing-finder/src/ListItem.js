@@ -8,7 +8,7 @@ function ListItem(props) {
         LISTING PHOTO HERE
         {props.photoUrl}
       </div>
-      <div style={{width: "100%", backgroundColor: 'LightGray'}}>
+      <div style={{width: "100%", backgroundColor: 'LightGray', textAlign: "left", padding: '10px'}}>
         <h3>{props.title}</h3>
         <h5>{props.description}</h5>
         <a>{props.location}</a>
