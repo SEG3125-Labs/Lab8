@@ -13,13 +13,14 @@ function Home() {
 
   const [page, setPage] = useState("");
 
+  const [filter, setFilter] = useState("All");
+  const [search, setSearch] = useState("");
+
   function showMessage(mykey) {
     setMessage(mykey);
   }
   function setP(p) {
     setPage(p);
-
-
   }
 
   function back() {
@@ -34,20 +35,22 @@ function Home() {
 
       <>
 
-        <input type="text" placeholder='Search'></input>
+        <input type="text" placeholder='Search' onChange={(e) => {setSearch(e.target.value)}}></input>
         <h3>Listings</h3>
         <label for="location">Select a location:</label>
 
-        <select name="location" id="location">
-          <option value="ottawa">Ottawa</option>
-          <option value="toronto">Toronto</option>
-          <option value="calgary">Calgary</option>
-          <option value="montreal">Montreal</option>
+        <select name="location" id="location" onChange={(e) => {setFilter(e.target.value)}}>
+          <option value="All">All</option>
+          <option value="Ottawa">Ottawa</option>
+          <option value="Toronto">Toronto</option>
+          <option value="Calgary">Calgary</option>
+          <option value="Montreal">Montreal</option>
         </select>
         <p>{message}</p>
 
-
-        {Listings.map((listing, key) =>
+        {Listings.filter((item, index) => filter != "All" ? item.location == filter: true)
+        .filter((item, index) => search != "" ? item.title.includes(search): true)
+        .map((listing, key) =>
           <ListItem showMessage={showMessage} key={key} mykey={listing.id} title={listing.title}
             description={listing.description} photoUrl={listing.photoUrl}
             location={listing.location}></ListItem>)
